@@ -1,0 +1,29 @@
+{
+  "name": "erc721-nft-marketplace-contarct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majinbruce/ERC721-NFT-MarketPlace-contarct.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majinbruce/ERC721-NFT-MarketPlace-contarct/issues"
+  },
+  "homepage": "https://github.com/majinbruce/ERC721-NFT-MarketPlace-contarct#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.6"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.6.0"
+  }
+}

@@ -15,16 +15,20 @@ contract MyNFT is ERC721URIStorage, Ownable {
         ERC721(NFTName, NFTSymbol)
     {}
 
-    function mintNFT(address recipient, string memory tokenURI)
-        public
-        onlyOwner
-        returns (uint256)
-    {
+    //mapping that tracs address with royalties
+    mapping(address => uint256) public royalties;
+
+    function mintNFT(
+        address recipient,
+        string memory tokenURI,
+        uint256 royalty
+    ) public onlyOwner returns (uint256) {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
         _safeMint(recipient, newItemId);
         _setTokenURI(newItemId, tokenURI);
+        royalties[recipient] = royalty;
         return newItemId;
     }
 }

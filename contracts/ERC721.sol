@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract MyNFT is ERC721URIStorage, Ownable {
+contract MyNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
@@ -15,20 +15,13 @@ contract MyNFT is ERC721URIStorage, Ownable {
         ERC721(NFTName, NFTSymbol)
     {}
 
-    //mapping that tracs address with royalties
-    mapping(address => uint256) public royalties;
-
-    function mintNFT(
-        address recipient,
-        string memory tokenURI,
-        uint256 royalty
-    ) public onlyOwner returns (uint256) {
+    function mintNFT(string memory tokenURI) public returns (uint256) {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
-        _safeMint(recipient, newItemId);
+        _safeMint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
-        royalties[recipient] = royalty;
+
         return newItemId;
     }
 }

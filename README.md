@@ -37,13 +37,15 @@ has a public mintNFT function to mint NFT ERC721 nfts
 * Install Hardhat
 
 ## Setting Up
-1. Clone/Download the Repository<br>
+1. Clone/Download the Repository </br></br>
 2. Install Dependencies:
-* npm init --yes
-* npm install --save-dev hardhat
+> npm init --yes </br>
+> npm install --save-dev hardhat </br>
+> npm install dotenv --save </br>
 
 3. Install Plugins:
-> npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+> npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai </br>
+> npm install --save-dev @nomiclabs/hardhat-etherscan
 4. Compile:
 > npx hardhat compile
 

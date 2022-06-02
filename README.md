@@ -32,3 +32,25 @@ has a public mintNFT function to mint NFT ERC721 nfts
 * Contract deployed on rinkeby test network at:
 >0x5f8B87F01d4Cc518d96E936B95DD47E19eB5eC1f
 
+## Requirements For Initial Setup
+* Install NodeJS, should work with any node version below 16.5.0
+* Install Hardhat
+
+## Setting Up
+1. Clone/Download the Repository<br>
+2. Install Dependencies:
+* npm init --yes
+* npm install --save-dev hardhat
+
+3. Install Plugins:
+> npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+4. Compile:
+> npx hardhat compile
+
+
+5. Migrate Smart Contracts
+> npx hardhat run scripts/deploy.js --network <network-name>
+
+6. Run Tests
+> $ npx hardhat test
+

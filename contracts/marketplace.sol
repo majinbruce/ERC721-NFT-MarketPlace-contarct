@@ -62,7 +62,7 @@ contract Marketplace is ReentrancyGuard {
         // transfer nft to the marketplace contract untill sold
         nft.transferFrom(msg.sender, address(this), _tokenId);
         // add new item to items mapping
-        items[itemCount] = Item(
+        items[_tokenId] = Item(
             itemCount,
             _price,
             _tokenId,
@@ -93,12 +93,12 @@ contract Marketplace is ReentrancyGuard {
         emit NFTSold(item.tokenId, item.price, item.seller, msg.sender);
     }
 
-    function getFee(uint256 _itemId) public view returns (uint256) {
-        return ((items[_itemId].price * platformFeePercent) / 1000);
+    function getFee(uint256 _tokenId) public view returns (uint256) {
+        return ((items[_tokenId].price * platformFeePercent) / 1000);
     }
 
-    function getRoyalty(uint256 _itemId) public view returns (uint256) {
-        return ((items[_itemId].price * items[_itemId].royalty) / 100);
+    function getRoyalty(uint256 _tokenId) public view returns (uint256) {
+        return ((items[_tokenId].price * items[_tokenId].royalty) / 100);
     }
 
     function validateSale(uint256 _tokenId) private view {
